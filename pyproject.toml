@@ -1,0 +1,66 @@
+[project]
+name = "play-langgraph"
+version = "0.0.0"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain>=0.3.27",
+    "langchain-google-genai>=2.1.10",
+    "langgraph",
+    "lru-cache>=0.2.3",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+]
+
+[tool.ruff]
+# Point to your source code directory.
+# Using a "src" layout is a common best practice.
+src = ["src"]
+
+[tool.ruff.format]
+# Ruff's formatter is a drop-in replacement for Black.
+# This makes it compatible with Black's default style.
+quote-style = "double"
+
+[tool.ruff.lint]
+# Select the rule sets you want to enable. This is a great starting point.
+# E/F: Standard pyflakes/pycodestyle errors
+# I: isort for import sorting
+# UP: pyupgrade for modernizing code syntax
+# B: flake8-bugbear for finding likely bugs
+# A: flake8-builtins for preventing shadowing built-ins
+select = ["E", "F", "I", "UP", "B", "A"]
+
+# Ignore common folders
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+]
+
+# ---
+
+[tool.pyright]
+# Define which files Pyright should analyze.
+include = ["src"]
+
+# Ignore the same folders as Ruff.
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+]
+
+# Set the type checking strictness.
+# "basic" is a great start. Use "strict" for maximum type safety.
+typeCheckingMode = "basic"
+
+# Use the active virtual environment for resolving imports.
+venvPath = "."
+venv = ".venv"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.405",
+    "ruff>=0.12.12",
+]
