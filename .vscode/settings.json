@@ -2,12 +2,15 @@
 
   "files.exclude": {
     "**/.ruff_cache": true,
+    "**/.venv": true,
+    "**/__pycache__": true
   },
   
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "Makefile": "pyproject.toml, .gitignore, uv.lock, .python-version"
+    "Makefile": "pyproject.toml, .gitignore, uv.lock, .python-version",
+    ".env": ".env.*"
   },
 
 
